@@ -1,73 +1,36 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 适合于 Nestjs 开发的 devcontainer 配置
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+这是一个适合于 Nestjs 开发的 devcontainer 配置，可以在 vscode 中使用 devcontainer 插件直接启动一个开发环境。 已经包含 `nodejs`、`typescript`、`nest`、`PostgreSQL`、`adminer` 等常用工具和服务。
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 使用方法
 
-## Description
+1. 安装 vscode 插件：Remote - Containers
+2. 使用 Github 的模板功能，创建一个新的仓库，即在本仓库的右上角点击 `Use this template`，然后在新仓库中 clone 代码。
+3. 打开 vscode，打开项目根目录
+4. 点击左下角的 `><` 图标，选择 `Reopen in Container`
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 配置说明
 
-## Installation
+- `Dockerfile`：用于构建 devcontainer 的 Dockerfile
+- `devcontainer.json`：devcontainer 配置文件
+- `docker-compose.yml`：用于启动数据库等服务
 
-```bash
-$ npm install
-```
+## 服务说明
 
-## Running the app
+- `nodejs`：nodejs 环境
+- `typescript`：typescript 编译环境
+- `nest`：nest 框架
+- `PostgreSQL`：数据库
+- `adminer`：数据库管理工具
 
-```bash
-# development
-$ npm run start
+## 运行端口
 
-# watch mode
-$ npm run start:dev
+- `3000`：nest 服务
+- `8081`：adminer
+- `5432`：PostgreSQL
 
-# production mode
-$ npm run start:prod
-```
+## 注意事项
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- 请确保安装了 Docker Desktop
+- 请确保安装了 vscode 插件：Remote - Containers
+- 请避免端口冲突，如有冲突请修改 `docker-compose.yml` 中的端口映射，本项目默认暴露端口为 `3000`、`8081`、`5432`
